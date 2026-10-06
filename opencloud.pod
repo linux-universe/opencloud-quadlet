@@ -2,7 +2,10 @@
 Description=Opencloud
 
 [Pod]
-PublishPort=9200:9200
+PublishPort=127.0.0.1:9200:9200
+
+#euro-office
+PublishPort=127.0.0.1:9900:80
 
 [Install]
 WantedBy=default.target
