@@ -1,0 +1,15 @@
+[Unit]
+Description=Opencloud yjs
+
+[Container]
+AutoUpdate=registry
+Image=docker.io/opencloudeu/radicale
+Pod=opencloud.pod
+StartWithPod=false
+User=1000:1000
+
+Volume=./config/radicale/config:/etc/radicale/config:z
+Volume=radicale-data:/var/lib/radicale
+
+[Service]
+TimeoutStartSec=900
