@@ -1,5 +1,5 @@
 [Unit]
-Description=Opencloud yjs
+Description=Opencloud radicale
 
 [Container]
 AutoUpdate=registry

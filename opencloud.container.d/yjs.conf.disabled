@@ -3,4 +3,3 @@ Wants=opencloud-yjs.container
 
 [Container]
 Environment=WEB_OPTION_YJS_SERVER_URL=wss://cloud.opencloud.test/yjs
-Volume=./config/opencloud/proxy.yaml:/etc/opencloud/proxy.yaml:z

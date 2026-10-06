@@ -11,6 +11,7 @@ User=1000:1000
 Entrypoint=/bin/sh
 Exec=-c 'opencloud init || true; opencloud server'
 
+Volume=./config/opencloud/proxy.yaml:/etc/opencloud/proxy.yaml:z
 Volume=./config/opencloud/csp.yaml:/etc/opencloud/csp.yaml:z
 Volume=./config/opencloud/apps.yaml:/etc/opencloud/apps.yaml:z
 Volume=./config/opencloud/banned-password-list.txt:/etc/opencloud/banned-password-list.txt:z

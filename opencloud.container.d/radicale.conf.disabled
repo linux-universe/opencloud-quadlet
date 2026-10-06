@@ -1,5 +1,2 @@
 [Unit]
 Wants=opencloud-radicale.container
-
-[Container]
-Volume=./config/opencloud/proxy.yaml:/etc/opencloud/proxy.yaml:z
