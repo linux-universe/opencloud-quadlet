@@ -11,6 +11,7 @@ User=1000:1000
 Environment=PORT=1234
 Environment=OPENCLOUD_URL=http://127.0.0.1:9200
 Environment=SHUTDOWN_GRACE_PERIOD_MS=15000
+StopTimeout=20
 
 [Service]
 TimeoutStartSec=900
