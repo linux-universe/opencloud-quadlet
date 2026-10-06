@@ -24,6 +24,8 @@ Environment=OC_LOG_COLOR=false
 Environment=OC_LOG_PRETTY=false
 # do not use SSL between the reverse proxy and OpenCloud
 Environment=PROXY_TLS=false
+# bind to all interfaces so the pod's published port can reach it
+Environment=PROXY_HTTP_ADDR=0.0.0.0:9200
 # INSECURE: needed if OpenCloud / reverse proxy is using self generated certificates
 Environment=OC_INSECURE=false
 # basic auth (not recommended, but needed for eg. WebDav clients that do not support OpenID Connect)
