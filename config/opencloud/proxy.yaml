@@ -6,28 +6,28 @@ additional_policies:
   - name: default
     routes:
       - endpoint: /yjs
-        backend: http://yjs:1234
+        backend: http://127.0.0.1:1234
         unprotected: true
       - endpoint: /caldav/
-        backend: http://radicale:5232
+        backend: http://127.0.0.1:5232
         remote_user_header: X-Remote-User
         skip_x_access_token: true
         additional_headers:
           - X-Script-Name: /caldav
       - endpoint: /.well-known/caldav
-        backend: http://radicale:5232
+        backend: http://127.0.0.1:5232
         remote_user_header: X-Remote-User
         skip_x_access_token: true
         additional_headers:
           - X-Script-Name: /caldav
       - endpoint: /carddav/
-        backend: http://radicale:5232
+        backend: http://127.0.0.1:5232
         remote_user_header: X-Remote-User
         skip_x_access_token: true
         additional_headers:
           - X-Script-Name: /carddav
       - endpoint: /.well-known/carddav
-        backend: http://radicale:5232
+        backend: http://127.0.0.1:5232
         remote_user_header: X-Remote-User
         skip_x_access_token: true
         additional_headers:
@@ -37,7 +37,7 @@ additional_policies:
 # the password.
 # Also set "type" to "internal" in the config/radicale/config
 #      - endpoint: /caldav/.web/
-#        backend: http://radicale:5232/
+#        backend: http://127.0.0.1:5232/
 #        unprotected: true
 #        skip_x_access_token: true
 #        additional_headers:
