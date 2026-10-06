@@ -1,0 +1,16 @@
+[Unit]
+Description=Opencloud yjs
+
+[Container]
+AutoUpdate=registry
+Image=docker.io/opencloudeu/yjs
+Pod=opencloud.pod
+StartWithPod=false
+User=1000:1000
+
+Environment=PORT=1234
+Environment=OPENCLOUD_URL=http://127.0.0.1:9200
+Environment=SHUTDOWN_GRACE_PERIOD_MS=15000
+
+[Service]
+TimeoutStartSec=900
