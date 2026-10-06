@@ -1,0 +1,8 @@
+[Unit]
+Description=Opencloud
+
+[Pod]
+PublishPort=9200:9200
+
+[Install]
+WantedBy=default.target

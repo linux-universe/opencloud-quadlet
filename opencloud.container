@@ -1,0 +1,65 @@
+[Unit]
+Description=Opencloud web & backend
+
+[Container]
+AutoUpdate=registry
+Image=docker.io/opencloudeu/opencloud-rolling
+Pod=opencloud.pod
+StartWithPod=true
+User=1000:1000
+
+Entrypoint=/bin/sh
+Exec=-c 'opencloud init || true; opencloud server'
+
+Volume=./config/opencloud/csp.yaml:/etc/opencloud/csp.yaml:z
+Volume=./config/opencloud/apps.yaml:/etc/opencloud/apps.yaml:z
+Volume=./config/opencloud/banned-password-list.txt:/etc/opencloud/banned-password-list.txt:z
+Volume=./config/opencloud/apps:/var/lib/opencloud/web/assets/apps:z
+Volume=opencloud-config:/etc/opencloud
+Volume=opencloud-data:/var/lib/opencloud
+
+Environment=OC_URL=https://cloud.opencloud.test
+Environment=OC_LOG_LEVEL=info
+Environment=OC_LOG_COLOR=false
+Environment=OC_LOG_PRETTY=false
+# do not use SSL between the reverse proxy and OpenCloud
+Environment=PROXY_TLS=false
+# INSECURE: needed if OpenCloud / reverse proxy is using self generated certificates
+Environment=OC_INSECURE=false
+# basic auth (not recommended, but needed for eg. WebDav clients that do not support OpenID Connect)
+Environment=PROXY_ENABLE_BASIC_AUTH=false
+# demo users
+Environment=IDM_CREATE_DEMO_USERS=false
+# admin password
+#Environment=IDM_ADMIN_PASSWORD=changeme
+
+# email server (if configured)
+#Environment=NOTIFICATIONS_SMTP_HOST=
+#Environment=NOTIFICATIONS_SMTP_PORT=
+#Environment="NOTIFICATIONS_SMTP_SENDER=OpenCloud Notifications <notifications@cloud.opencloud.test>"
+#Environment=NOTIFICATIONS_SMTP_USERNAME=
+#Environment=NOTIFICATIONS_SMTP_PASSWORD=
+#Environment=NOTIFICATIONS_SMTP_INSECURE=false
+#Environment=NOTIFICATIONS_SMTP_AUTHENTICATION=
+#Environment=NOTIFICATIONS_SMTP_ENCRYPTION=none
+
+Environment=FRONTEND_ARCHIVER_MAX_SIZE=10000000000
+Environment=FRONTEND_CHECK_FOR_UPDATES=true
+Environment=PROXY_CSP_CONFIG_FILE_LOCATION=/etc/opencloud/csp.yaml
+# enable to allow using the banned passwords list
+Environment=OC_PASSWORD_POLICY_BANNED_PASSWORDS_LIST=banned-password-list.txt
+# control the password enforcement and policy for public shares
+Environment=OC_SHARING_PUBLIC_SHARE_MUST_HAVE_PASSWORD=true
+Environment=OC_SHARING_PUBLIC_WRITEABLE_SHARE_MUST_HAVE_PASSWORD=false
+Environment=OC_PASSWORD_POLICY_DISABLED=false
+Environment=OC_PASSWORD_POLICY_MIN_CHARACTERS=8
+Environment=OC_PASSWORD_POLICY_MIN_LOWERCASE_CHARACTERS=1
+Environment=OC_PASSWORD_POLICY_MIN_UPPERCASE_CHARACTERS=1
+Environment=OC_PASSWORD_POLICY_MIN_DIGITS=1
+Environment=OC_PASSWORD_POLICY_MIN_SPECIAL_CHARACTERS=1
+# default language for services/WebUI; defaults to English, language code (ISO 639-1, e.g. de, en, fr)
+#Environment=OC_DEFAULT_LANGUAGE=en
+
+[Service]
+TimeoutStartSec=900
+
