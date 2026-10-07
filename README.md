@@ -6,6 +6,8 @@ Heavily inspired from [opencloud-compose](https://github.com/opencloud-eu/opencl
 
 > [!WARNING]
 > In early development
+>
+> Requires **podman 5.5+**
 
 Everything runs inside one Podman pod (`opencloud.pod`). Because the containers share a network namespace, they reach each other over `127.0.0.1` and need no internal networking setup. The pod only publishes ports on localhost, so a reverse proxy on the host is expected to handle TLS and public traffic.
 
