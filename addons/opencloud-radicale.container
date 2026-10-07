@@ -8,7 +8,7 @@ Pod=opencloud.pod
 StartWithPod=false
 User=1000:1000
 
-Volume=./config/radicale/config:/etc/radicale/config:z
+Volume=../config/radicale/config:/etc/radicale/config:z
 Volume=radicale-data:/var/lib/radicale
 
 [Service]
