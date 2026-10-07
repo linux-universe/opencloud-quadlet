@@ -6,11 +6,11 @@ AutoUpdate=registry
 Image=ghcr.io/euro-office/documentserver
 Pod=opencloud.pod
 StartWithPod=false
+EnvironmentFile=../opencloud.env
 
 Environment=WOPI_ENABLED=true
 # self-signed certificates
 Environment=USE_UNAUTHORIZED_STORAGE=false
-Environment=JWT_SECRET=
 
 [Service]
 TimeoutStartSec=900

@@ -19,7 +19,9 @@ Volume=./config/opencloud/apps:/var/lib/opencloud/web/assets/apps:z
 Volume=opencloud-config:/etc/opencloud
 Volume=opencloud-data:/var/lib/opencloud
 
-Environment=OC_URL=https://cloud.opencloud.test
+# must change variables are in a separate env file
+EnvironmentFile=./opencloud.env
+
 Environment=OC_LOG_LEVEL=info
 Environment=OC_LOG_COLOR=false
 Environment=OC_LOG_PRETTY=false
