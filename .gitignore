@@ -1,2 +1,10 @@
 opencloud-compose/
 opencloud.env
+
+# enabled add-on drop-ins (symlinks)
+opencloud.container.d/*
+!opencloud.container.d/.gitkeep
+
+# user-installed web apps
+config/opencloud/apps/*
+!config/opencloud/apps/.gitkeep
