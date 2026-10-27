@@ -3,7 +3,7 @@ Description=Opencloud web & backend
 
 [Container]
 AutoUpdate=registry
-Image=docker.io/opencloudeu/opencloud-rolling
+Image=docker.io/opencloudeu/opencloud-rolling:9
 Pod=opencloud.pod
 StartWithPod=true
 User=1000:1000
