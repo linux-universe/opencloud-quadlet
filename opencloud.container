@@ -19,7 +19,7 @@ Volume=./config/opencloud/apps:/var/lib/opencloud/web/assets/apps:z
 Volume=opencloud-config:/etc/opencloud
 Volume=opencloud-data:/var/lib/opencloud
 
-# defaults first, then the users overrides
+# defaults first, then the user's overrides
 EnvironmentFile=./opencloud.defaults.env
 EnvironmentFile=./opencloud.env
 
