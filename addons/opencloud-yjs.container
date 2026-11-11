@@ -8,6 +8,7 @@ Pod=opencloud.pod
 StartWithPod=false
 User=1000:1000
 
+# kept in here instead of `opencloud.defaults.env` as these variables normally don't get changed by the user and are too generic, which could lead to conflicts
 Environment=PORT=1234
 Environment=OPENCLOUD_URL=http://127.0.0.1:9200
 Environment=SHUTDOWN_GRACE_PERIOD_MS=15000

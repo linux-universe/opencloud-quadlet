@@ -16,3 +16,6 @@ OpenCloud itself (`opencloud.container`) is the only service enabled by default.
 ## Configuration
 
 Copy `opencloud.env.example` to `opencloud.env` and adjust it. Everything you must change before OpenCloud can start is in this one file, so you don't have to hunt through the unit files. Because it's not tracked by git, `git pull` won't conflict with your values. When you enable an add-on, uncomment its section there too.
+
+Defaults for everything else live in `opencloud.defaults.env`. Don't edit that
+file: it's tracked by git, and any variable you set in `opencloud.env` overrides it.
